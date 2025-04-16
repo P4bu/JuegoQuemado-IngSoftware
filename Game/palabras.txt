@@ -1,0 +1,5 @@
+silla
+mesa
+pantalon
+jugo
+computador
