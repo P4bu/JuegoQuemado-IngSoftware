@@ -75,22 +75,22 @@ export default class GameController {
         this.guessedLetters.push(letter);
         this.gameView.disableLetterButton(letter);
         
-        // Verificar si la letra está en la palabra
+        // Verifica si la letra está en la palabra
         if (this.currentWord.includes(letter)) {
-            // Calcular puntuación
+            // Calcula puntuación
             const points = this.scoreCalculator.calculateScore(this.currentWord, letter);
             this.score += points;
             this.gameView.updateScore(this.score);
             
             this.gameView.updateWordDisplay(this.currentWord, this.guessedLetters);
             
-            // Verificar si ganó
+            // Verifica si ganó
             this.checkForWin();
         } else {
             // Letra incorrecta
             const remainingAttempts = this.imageManager.decrementAttempt();
             
-            // Verificar si perdió
+            // Verifica si perdió
             if (remainingAttempts === 0) {
                 this.gameView.showMessage(`¡Perdiste! La palabra era: ${this.currentWord}`, 'error');
             }
